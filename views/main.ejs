@@ -1,0 +1,20 @@
+<% include ./partials/header %>
+<% include ./partials/menuComponent %>
+
+    <div class="container animated bounce delay-2s">
+        <div class="ui three column grid">
+        <%data.sources.forEach(function(item){%>    
+                <div class="five wide column">
+                    <div class="ui segment unique-color-dark text-white">
+                        <h1><%=item.name %></h1>
+                        <hr>
+                        <h4><%=item.description%></h4>
+                        <div class="">
+                            <a class="btn btn-outline-default" href="/sources/<%=item.id%>/show">info</a>
+                        </div>
+                    </div>
+                </div>
+        <% }) %>
+        </div>
+    </div><!-- container -->
+<% include ./partials/footer %>

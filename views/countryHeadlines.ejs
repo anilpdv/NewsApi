@@ -1,0 +1,48 @@
+<%include ./partials/header %>
+<% include ./partials/menuComponent %>
+<div class="container text-white text-center">
+    <div class="jumbotron unique-color">
+        <div class="">
+            <h1 class="display-4">Country Headlines</h1>
+        </div>
+        
+    </div>
+</div>
+<div class="container p-5">
+    <% data.forEach(function(item){%>
+            <!-- ui segment -->
+            <div class="ui segment unique-color-dark text-white">
+
+                <!-- two column very relaxed grid -->
+                <div class="ui two column  grid">
+                    
+                    <!-- column -->
+                        <div class="column">
+
+                            <img class="ui image" src="<%=item.urlToImage%>" onerror="this.src='https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=940'"/>
+                        </div>
+
+                    
+
+                    <!--column -->
+                    <div class="column">
+
+                        <!-- Title -->
+                        <h2 class=""><%=item.title%></h2>
+
+                        <!-- Text -->
+                        <h3 class=""><%=item.description%></h3>
+                        <hr>
+                        <!-- content -->
+                        <h4 class=""><%=item.content%></h4>
+                        <div class="text-right">
+                            <a class="btn btn-outline-success" href="<%=item.url%>">fullcover</a>
+                        </div>
+                    </div>
+
+                </div>                
+            </div><!-- ui segment close -->
+    <%})%>
+</div>
+
+<% include ./partials/footer %>

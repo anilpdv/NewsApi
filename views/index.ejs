@@ -1,0 +1,67 @@
+<% include ./partials/header %>
+<div class="bg-warning">
+    <a class='btn btn-dark' href="/">home</a>
+    <a class="btn btn-dark" href="/country">country</a>
+</div>
+<div class="bg-warning p-5 text-center">
+    
+    <div class="">
+        <i class="contao icon"></i>
+    </div>
+    <form action="/search" method="get">
+        <div class="ui action input">
+            <input type="text" name="search" value="barcelona" placeholder="search..">
+            <select name="lang" class="ui dropdown bg-dark text-white">
+                    <option value="en">English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="ar">Arabic</option>
+            </select>
+            <select name="sort" class="ui dropdown bg-dark text-white">
+                <option value="popularity">Popularity</option>
+                <option selected='' value="relevancy">Relevency</option>
+                <option value="publishedAt">PublishedAt</option>
+            </select>
+            <button class="ui button">search</button>
+        </div>
+    </form>
+</div>
+<div class="container p-5">
+    <% data.articles.forEach(function(item){%>
+            <!-- ui segment -->
+            <div class="ui segment unique-color-dark text-white">
+
+                <!-- two column very relaxed grid -->
+                <div class="ui two column  grid">
+                    
+                    <!-- column -->
+                        <div class="column">
+
+                            <img class="ui image" src="<%=item.urlToImage%>" onerror="this.src='https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=940'"/>
+                        </div>
+
+                    
+
+                    <!--column -->
+                    <div class="column">
+
+                        <!-- Title -->
+                        <h2 class=""><%=item.title%></h2>
+
+                        <!-- Text -->
+                        <h3 class=""><%=item.description%></h3>
+                        <hr>
+                        <!-- content -->
+                        <h4 class=""><%=item.content%></h4>
+                        <div class="text-right">
+                            <a class="btn btn-outline-success" href="<%=item.url%>">fullcover</a>
+                        </div>
+                    </div>
+
+                </div>                
+            </div><!-- ui segment close -->
+    <%})%>
+</div>
+
+<% include ./partials/footer %>
